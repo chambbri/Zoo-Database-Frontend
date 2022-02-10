@@ -33,7 +33,7 @@ function employees(){
                             <th>Phone Number</th>
                             <th>Email</th>
                             <th>Job Title</th>
-                            <th>Modify</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

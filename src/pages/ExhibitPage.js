@@ -26,8 +26,8 @@ function ExhibitPage() {
                         <td><button type="button">Edit</button><button type="button">Delete</button></td>
                     </tr>
                 </tbody>
-            <br />
             </table>
+            <br />
                 <form>
                     <fieldset>
                         <legend>Add an exhibit</legend>

@@ -26,8 +26,8 @@ function ServicesPage() {
                             <td><button type="button">Edit</button><button type="button">Delete</button></td>
                         </tr>
                     </tbody>
-                    <br />
                 </table>
+                <br />
                 <form>
                     <fieldset>
                         <legend>Add A Service</legend>
@@ -41,7 +41,7 @@ function ServicesPage() {
                     </fieldset>
                 </form>
                 <br />
-                <Link to="/">Go back to the Home Page</Link>
+                <Link to="/">Go back to Home</Link>
             </div>
         </>
     );
