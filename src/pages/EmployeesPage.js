@@ -1,4 +1,6 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function employees(){
     return(
@@ -50,6 +52,8 @@ function employees(){
             <div>
                 <label>Search for an employee<input type="text"/></label>
             </div>
+            <br />
+            <Link to="/">Go back to the Home Page</Link>
         </body>
     )
 }

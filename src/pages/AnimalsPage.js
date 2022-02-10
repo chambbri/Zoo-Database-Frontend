@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function animals(){
     return(
@@ -50,6 +51,8 @@ function animals(){
             <div>
                 <label>Search for an employee<input type="text"/></label>
             </div>
+            <br />
+            <Link to="/">Go back to the Home Page</Link>
         </body>
     )
 }

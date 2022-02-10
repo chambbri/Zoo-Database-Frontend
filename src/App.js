@@ -1,21 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import animals from './pages/animals';
-import employees from './pages/employees';
+import { Routes, Route } from 'react-router-dom';
+import AnimalsPage from './pages/AnimalsPage';
+import EmployeesPage from './pages/EmployeesPage';
+import HomePage from './pages/HomePage';
+import ExhibitPage from './pages/ExhibitPage';
+import ServicesPage from './pages/ServicesPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Welcome to the West Coast Best Coast Zoo</h1>
-        <Router>
-          <Route path="/animals" element={< animals/>}></Route>
-          <Route path="/animals" element={< employees/>}></Route>
-        </Router>
-        <Link to="/animals">Animals</Link>
-        <Link to="/employees">Employees</Link>
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/animals" element={<AnimalsPage />} />
+          <Route path="/employees" element={<EmployeesPage />} />
+          <Route path="/exhibits" element={<ExhibitPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Routes>
       </header>
     </div>
   );
