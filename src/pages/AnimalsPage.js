@@ -9,11 +9,10 @@ function animals(){
                 <form>
                     <fieldset>
                         <legend>Add an animal</legend>
-                        <label>Animal <input type="text" id="animal" name="animal"/></label>
+                        <label>Animal Type<input type="text" id="animaltype" name="animaltype"/></label>
                         <label>Exhibit <input type="text" id="exhibit" name="exhibit"/></label>
-                        <label>Species <input type="text" id="species" name="species"/></label>
                         <label>Origin Country<input type="origincountry" id="origincountry" name="origincountry"/></label>
-                        <label>birthdate<input type="date" id="birthdate" name="birthdate" /></label>
+                        <label>Birthdate<input type="date" id="birthdate" name="birthdate" /></label>
                         <label>Gender</label>
                         <select name="gender" id="gender">
                             <option value="female">Male</option>
@@ -29,8 +28,8 @@ function animals(){
                     <thead>
                         <tr>
                             <th>Animal ID</th>
+                            <th>Animal Type</th>
                             <th>Exhibit</th>
-                            <th>Species</th>
                             <th>Origin Country</th>
                             <th>Birthdate</th>
                             <th>Gender</th>
@@ -40,8 +39,8 @@ function animals(){
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Lion Exhibit</td>
                             <td>Lion</td>
+                            <td>Lion Exhibit</td>
                             <td>South Africa</td>
                             <td>05/12/2012</td>
                             <td>Male</td>

@@ -21,7 +21,7 @@ function ExhibitPage() {
                     <tr>
                         <td>1</td>
                         <td>Lion</td>
-                        <td>100 Sq feet</td>
+                        <td>1000 Sq feet</td>
                         <td>3</td>
                         <td><button type="button">Edit</button><button type="button">Delete</button></td>
                     </tr>
