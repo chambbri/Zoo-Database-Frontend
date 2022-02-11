@@ -29,7 +29,7 @@ function animals(){
                         <tr>
                             <th>Animal ID</th>
                             <th>Animal Type</th>
-                            <th>Exhibit</th>
+                            <th>Exhibit ID</th>
                             <th>Origin Country</th>
                             <th>Birthdate</th>
                             <th>Gender</th>
@@ -40,7 +40,7 @@ function animals(){
                         <tr>
                             <td>1</td>
                             <td>Lion</td>
-                            <td>Lion Exhibit</td>
+                            <td>1</td>
                             <td>South Africa</td>
                             <td>05/12/2012</td>
                             <td>Male</td>
