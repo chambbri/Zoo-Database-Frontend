@@ -10,6 +10,7 @@ function HomePage() {
             <Link to="/employees">List of Employees</Link>
             <Link to="/exhibits">List of Exhibits</Link>
             <Link to="/services">Daily Services</Link>
+            <Link to="/animalemployeeservices">Animal Employee Services</Link>
         </>
     );
 }

@@ -10,6 +10,7 @@ function ServicesPage() {
                 <table>
                     <thead>
                         <tr>
+                            <th>Animal Service ID</th>
                             <th>Animal ID</th>
                             <th>Date</th>
                             <th>Time</th>
@@ -19,6 +20,7 @@ function ServicesPage() {
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>1</td>
                             <td>2/08/2022</td>
                             <td>10:00AM</td>

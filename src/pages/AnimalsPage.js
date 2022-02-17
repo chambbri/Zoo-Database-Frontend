@@ -51,7 +51,7 @@ function animals(){
             </div>
             <br />
             <div>
-                <label>Search for an animal<input type="text"/></label>
+                <label>Search for an animal by Animal Type<input type="text"/></label>
             </div>
             <br />
             <Link to="/">Go back to the Home Page</Link>

@@ -50,7 +50,7 @@ function employees(){
                 </table>
             </div>
             <div>
-                <label>Search for an employee<input type="text"/></label>
+                <label>Search for an employee by last name<input type="text"/></label>
             </div>
             <br />
             <Link to="/">Go back to the Home Page</Link>
