@@ -7,18 +7,20 @@ import HomePage from './pages/HomePage';
 import ExhibitPage from './pages/ExhibitPage';
 import ServicesPage from './pages/ServicesPage';
 import A_E_ServicesPage from './pages/A_E_ServicesPage'
+import Navbar from './components/NavBar/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <Navbar />
+      <header className="App-header App">
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/animals" element={<AnimalsPage />} />
           <Route path="/employees" element={<EmployeesPage />} />
           <Route path="/exhibits" element={<ExhibitPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/animalemployeeservices" element={<A_E_ServicesPage />} />
+          <Route path="/animal-employee-services" element={<A_E_ServicesPage />} />
         </Routes>
       </header>
     </div>

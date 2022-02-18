@@ -23,6 +23,7 @@ function employees(){
                     </fieldset>
                 </form>
             </div>
+            <br />
             <div>
                 <table>
                     <thead>
@@ -49,11 +50,10 @@ function employees(){
                     </tbody>
                 </table>
             </div>
-            <div>
-                <label>Search for an employee by last name<input type="text"/></label>
-            </div>
             <br />
-            <Link to="/">Go back to the Home Page</Link>
+            <div>
+                <label>Search for an employee by last name<input type="text"/></label><button>Search</button>
+            </div>
         </body>
     )
 }

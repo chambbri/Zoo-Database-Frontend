@@ -7,6 +7,18 @@ function ExhibitPage() {
         <>
         <div className='app-container'>
             <h1>List of Exhibits</h1>
+            <form>
+                <fieldset>
+                    <legend>Add an exhibit</legend>
+                    <label>Type of Exhibit <input type="text" id="type" name="type" /></label>
+                    <label>Size<input type="int" id="size" name="size" /></label>
+                    <br />
+                    <label>Animal Capacity <input type="int" id="phone" name="phone" /></label>
+                    <br />
+                    <button type="button">Add</button>
+                </fieldset>
+            </form>
+            <br />
             <table>
                 <thead>
                     <tr>
@@ -28,19 +40,9 @@ function ExhibitPage() {
                 </tbody>
             </table>
             <br />
-                <form>
-                    <fieldset>
-                        <legend>Add an exhibit</legend>
-                        <label>Type of Exhibit <input type="text" id="type" name="type" /></label>
-                        <label>Size in Sq. Feet <input type="int" id="size" name="size" /></label>
-                        <br />
-                        <label>Animal Capacity <input type="int" id="phone" name="phone" /></label>
-                        <br />
-                        <button type="button">Add</button>
-                    </fieldset>
-                </form>
-            <br />
-            <Link to="/">Go back to the Home Page</Link>
+            <div>
+                <label>Search for an exhibit<input type="text" /></label><button>Search</button>
+            </div>
         </div>
         </>
     );

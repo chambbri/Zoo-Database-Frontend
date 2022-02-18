@@ -10,7 +10,11 @@ function animals(){
                     <fieldset>
                         <legend>Add an animal</legend>
                         <label>Animal Type<input type="text" id="animaltype" name="animaltype"/></label>
-                        <label>Exhibit <input type="text" id="exhibit" name="exhibit"/></label>
+                        <label>Exhibit</label>
+                        <select name="exhibit" id="exhibit">
+                            <option value="female">1</option>
+                            <option value="male">2</option>
+                        </select>
                         <label>Origin Country<input type="origincountry" id="origincountry" name="origincountry"/></label>
                         <label>Birthdate<input type="date" id="birthdate" name="birthdate" /></label>
                         <label>Gender</label>
@@ -51,10 +55,8 @@ function animals(){
             </div>
             <br />
             <div>
-                <label>Search for an animal by Animal Type<input type="text"/></label>
+                <label>Search for an animal<input type="text" /></label><button>Search</button>
             </div>
-            <br />
-            <Link to="/">Go back to the Home Page</Link>
         </body>
     )
 }

@@ -7,6 +7,19 @@ function ServicesPage() {
         <>
             <div className='app-container'>
                 <h1>List of Services</h1>
+                <form>
+                    <fieldset>
+                        <legend>Add A Service</legend>
+                        <label>Animal <input type="text" id="animal" name="animal" /></label>
+                        <label>Date <input type="date" id="date" name="date" /></label>
+                        <br />
+                        <label>Time <input type="time" id="time" name="time" /></label>
+                        <label>Type of Care<input type="text" id="care" name="care" /></label>
+                        <br />
+                        <button type="button">Add</button>
+                    </fieldset>
+                </form>
+                <br />
                 <table>
                     <thead>
                         <tr>
@@ -30,20 +43,9 @@ function ServicesPage() {
                     </tbody>
                 </table>
                 <br />
-                <form>
-                    <fieldset>
-                        <legend>Add A Service</legend>
-                        <label>Animal <input type="text" id="animal" name="animal" /></label>
-                        <label>Date <input type="date" id="date" name="date" /></label>
-                        <br />
-                        <label>Time <input type="time" id="time" name="time" /></label>
-                        <label>Type of Care<input type="text" id="care" name="care"/></label>
-                        <br />
-                        <button type="button">Add</button>
-                    </fieldset>
-                </form>
-                <br />
-                <Link to="/">Go back to Home</Link>
+                <div>
+                    <label>Search for a service<input type="text" /></label><button>Search</button>
+                </div>
             </div>
         </>
     );
