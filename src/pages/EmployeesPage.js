@@ -51,9 +51,6 @@ function employees(){
                 </table>
             </div>
             <br />
-            <div>
-                <label>Search for an employee by last name<input type="text"/></label><button>Search</button>
-            </div>
         </body>
     )
 }

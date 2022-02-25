@@ -40,9 +40,6 @@ function ExhibitPage() {
                 </tbody>
             </table>
             <br />
-            <div>
-                <label>Search for an exhibit<input type="text" /></label><button>Search</button>
-            </div>
         </div>
         </>
     );

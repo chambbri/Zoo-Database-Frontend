@@ -34,10 +34,6 @@ function a_e_services() {
                     </tbody>
                 </table>
             </div>
-            <br />
-            <div>
-                <label>Search for an animal employee service<input type="text" /></label><button>Search</button>
-            </div>
         </body>
     )
 }

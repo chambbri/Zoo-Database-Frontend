@@ -43,9 +43,6 @@ function ServicesPage() {
                     </tbody>
                 </table>
                 <br />
-                <div>
-                    <label>Search for a service<input type="text" /></label><button>Search</button>
-                </div>
             </div>
         </>
     );
