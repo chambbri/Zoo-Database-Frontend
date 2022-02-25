@@ -46,7 +46,9 @@ CREATE TABLE animal_employee_services {
     animal_services_id INT(11) NOT NULL
     employee_id INT(11) NOT NULL
     FOREIGN KEY(animal_services_id) REFERENCES animal_services(animal_services_id)
+    ON DELETE CASCADE,
     FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
+    ON DELETE CASCADE
 } engine=innodb;
 
 /* INSERT INTO ANIMAL TABLE */
