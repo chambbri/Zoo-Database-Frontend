@@ -1,3 +1,10 @@
+/* Drop tables */
+DROP TABLE IF EXISTS animals;
+DROP TABLE IF EXISTS exhibits;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS animal_services;
+DROP TABLE IF EXISTS animal_employee_services;
+
 /* CREATE EXHIBITS TABLE */
 CREATE TABLE exhibits (
     exhibit_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
@@ -8,7 +15,7 @@ CREATE TABLE exhibits (
  ) engine=innodb;
 
 /* CREATE ANIMAL TABLE */
-CREATE TABLE animal (
+CREATE TABLE animals (
     animal_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
     exhibit_id INT(11),
     animal_type VARCHAR(255) NOT NULL,
