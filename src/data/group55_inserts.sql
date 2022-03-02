@@ -1,26 +1,26 @@
+/* CREATE EXHIBITS TABLE */
+CREATE TABLE exhibits (
+    exhibit_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    size INT(11) NOT NULL,
+    animal_capacity INT(11) NOT NULL,
+    PRIMARY KEY(exhibit_id)
+ ) engine=innodb;
+
 /* CREATE ANIMAL TABLE */
-CREATE TABLE animal {
+CREATE TABLE animal (
     animal_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
-    exhibit_id INT(11) NOT NULL,
+    exhibit_id INT(11),
     animal_type VARCHAR(255) NOT NULL,
     origin_country VARCHAR(255) NOT NULL,
     birthdate DATE NOT NULL,
     gender VARCHAR(10) NOT NULL,
     PRIMARY KEY(animal_id),
     FOREIGN KEY(exhibit_id) REFERENCES exhibits(exhibit_id)
-} engine=innodb;
-
-/* CREATE EXHIBITS TABLE */
-CREATE TABLE exhibits {
-    exhibit_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    size INT(11) NOT NULL,
-    animal_capacity INT(11) NOT NULL,
-    PRIMARY KEY(exhibit_id)
-} engine=innodb;
+ ) engine=innodb;
 
 /* CREATE EMPLOYEES TABLE */
-CREATE TABLE employees {
+CREATE TABLE employees (
     employee_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
     fname VARCHAR(255) NOT NULL,
     lname VARCHAR(255) NOT NULL,
@@ -28,28 +28,29 @@ CREATE TABLE employees {
     email VARCHAR(255) NOT NULL,
     job_title VARCHAR(255) NOT NULL,
     PRIMARY KEY(employee_id)
-} engine=innodb;
+ ) engine=innodb;
 
 /* CREATE ANIMAL_SERVICE TABLE */
-CREATE TABLE animal_services {
-    animal_services_id INT(11) AUTO_INCREMENT UNIQUE NO NULL,
+CREATE TABLE animal_services (
+    animal_services_id INT(11) AUTO_INCREMENT UNIQUE NOT NULL,
     animal_id INT(11) NOT NULL,
     date DATE NOT NULL,
     time TIME NOT NULL,
-    type_of_care VARCHAR(255) NOT NULL
+    type_of_care VARCHAR(255) NOT NULL,
     PRIMARY KEY(animal_services_id),
     FOREIGN KEY(animal_id) REFERENCES animal(animal_id)
-} engine=innodb;
+ ) engine=innodb;
 
 /* CREATE ANIMAL_EMPLOYEE_SERVICES TABLE */
-CREATE TABLE animal_employee_services {
+CREATE TABLE animal_employee_services (
     animal_services_id INT(11) NOT NULL
-    employee_id INT(11) NOT NULL
+    employee_id INT(11) NOT NULL,
+    PRIMARY KEY (animal_services_id, employee_id),
     FOREIGN KEY(animal_services_id) REFERENCES animal_services(animal_services_id)
     ON DELETE CASCADE,
     FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
     ON DELETE CASCADE
-} engine=innodb;
+ ) engine=innodb;
 
 /* INSERT INTO ANIMAL TABLE */
 INSERT INTO animal (exhibit_id, animal_type, origin_country, birthdate, gender) VALUES

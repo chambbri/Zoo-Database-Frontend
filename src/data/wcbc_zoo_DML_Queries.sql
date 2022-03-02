@@ -2,12 +2,12 @@
 -- from the backend programming language
 
 -- Query for adding a new animal
-INSERT INTO animals (animal_type, origin_country, birthdate, gender)
-VALUES (:animal_typeInput, :origin_countryInput, :birthdateInput, :genderInput);
+INSERT INTO animals (exhibit_id, animal_type, origin_country, birthdate, gender)
+VALUES (:exhibit_idInput, :animal_typeInput, :origin_countryInput, :birthdateInput, :genderInput);
 
 -- Query for updating an animal
 UPDATE animals 
-SET animal_type = :animal_typeInput, origin_country = :origin_countryInput, birthdate = :birthdateInput, gender = :genderInput
+SET exhibit_id = :exhibit_idInput, animal_type = :animal_typeInput, origin_country = :origin_countryInput, birthdate = :birthdateInput, gender = :genderInput
 WHERE animal_id = :animal_idInput;
 
 -- Query for deleting an animal
@@ -74,16 +74,16 @@ SELECT * FROM employees;
 
 -- Query for inserting an animal_employee_services
 INSERT INTO animal_employee_services (animal_services_id, employee_id)
-VALUES (:animal_services_idINPUT, :employee_idInput)
+VALUES (:animal_services_idINPUT, :employee_idInput);
 
 -- Query for updating animal_employee_services
 UPDATE animal_employee_services
 SET animal_services_id = :animal_services_idINPUT, employee_id = :employee_idInput
-WHERE animal_services_id = :animal_services_idINPUT AND employee_id = :employee_idInput
+WHERE animal_services_id = :animal_services_idINPUT AND employee_id = :employee_idInput;
 
 -- Query for deleting an animal_employee_services
 DELETE FROM animal_employee_services
-WHERE animal_services_id = :animal_services_idINPUT AND employee_id = :employee_idInput
+WHERE animal_services_id = :animal_services_idINPUT AND employee_id = :employee_idInput;
 
 -- Query for selecting animal_employee_services
-SELECT * FROM animal_employee_services
+SELECT * FROM animal_employee_services;
