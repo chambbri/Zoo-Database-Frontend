@@ -7,7 +7,7 @@ import AnimalSearch from '../components/animals/AnimalSearch';
 function animals(){
     return(
         <body>
-            <h1>West Coast Best Coast Zoo Animals</h1>
+            <h1>West Coast Best Coast Zoo Animalss</h1>
             <div>
                 <InsertAnimal />
             </div>

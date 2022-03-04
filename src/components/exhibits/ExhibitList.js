@@ -1,5 +1,5 @@
 import React from 'react';
-import Exhibit from './Exhibit'
+import Exhibit from './Exhibit';
 
 function ExhibitList({exhibits}) {
     return(
@@ -14,7 +14,7 @@ function ExhibitList({exhibits}) {
                 </tr>
             </thead>
             <tbody>
-                {(exhibits ?? []).map((exhibit, i) => <Exhibit exhibit={exhibit} key={i} />)}
+                {exhibits.map((exhibit, i) => <Exhibit exhibit={exhibit} key={i}></Exhibit>)}
             </tbody>
         </table>
     )

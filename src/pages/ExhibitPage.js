@@ -7,16 +7,10 @@ import ExhibitList from '../components/exhibits/ExhibitList';
 function ExhibitPage() {
 
     const [exhibits, setExhibits] = useState([]);
-    const [createExhibit, setCreateExhibit] = useState([])
+    const [createExhibit, setCreateExhibit] = useState([]);
 
     const getExhibits = async() => {
-        const res = await fetch('/exhibits', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
         const exhibits = await res.json()
         setExhibits(exhibits)
     };
@@ -33,7 +27,7 @@ function ExhibitPage() {
             <h1>List of Exhibits</h1>
             <InsertExhibit />
             <br />
-            <ExhibitList />
+            <ExhibitList exhibits={exhibits}/>
             <br />
         </div>
         </>
