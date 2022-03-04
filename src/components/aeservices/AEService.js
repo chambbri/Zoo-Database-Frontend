@@ -3,8 +3,8 @@ import React from 'react';
 function AEService({ aeservice }) {
     return (
         <tr>
-            <td>{aeservice.service}</td>
-            <td>{aeservice.employee}</td>
+            <td>{aeservice.animal_services_id}</td>
+            <td>{aeservice.employee_id}</td>
             <td><button type="button">Edit</button><button type="button">Delete</button></td>
         </tr>
     );

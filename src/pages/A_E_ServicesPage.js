@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InsertAEService from '../components/aeservices/InsertAEService';
 import AEServiceList from '../components/aeservices/AEServiceList';
@@ -8,8 +8,8 @@ function AEServicePage() {
     const [createAEService, setCreateAEService] = useState([]);
 
     const getAEServices = async () => {
-        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/aeservice');
-        const exhibits = await res.json()
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/animalemployeeservices');
+        const aeservices = await res.json();
         setAEServices(aeservices)
     };
 

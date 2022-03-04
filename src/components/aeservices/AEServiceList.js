@@ -12,7 +12,7 @@ function AEServiceList({ aeservices }) {
                 </tr>
             </thead>
             <tbody>
-                {(aeservices ?? []).map((aeservice, i) => <AEService aeservice={aeservice} key={i} />)}
+                {aeservices.map((aeservice, i) => <AEService aeservice={aeservice} key={i}></AEService>)}
             </tbody>
         </table>
     )
