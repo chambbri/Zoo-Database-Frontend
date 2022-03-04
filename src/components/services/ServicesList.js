@@ -15,7 +15,7 @@ function ServiceList({ services }) {
                 </tr>
             </thead>
             <tbody>
-                {(services ?? []).map((service, i) => <Service service={service} key={i} />)}
+                {services.map((service, i) => <Service service={service} key={i}></Service>)}
             </tbody>
         </table>
     )

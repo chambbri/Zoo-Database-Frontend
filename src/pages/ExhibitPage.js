@@ -11,8 +11,8 @@ function ExhibitPage() {
 
     const getExhibits = async() => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
-        const exhibits = await res.json()
-        setExhibits(exhibits)
+        const exhibits = await res.json();
+        setExhibits(exhibits);
     };
 
     useEffect(() => {

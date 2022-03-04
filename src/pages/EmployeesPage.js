@@ -11,7 +11,7 @@ function EmployeesPage() {
 
     const getEmployees = async() => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/employees');
-        const employees = await res.join()
+        const employees = await res.json();
         setEmployees(employees)
     };
 

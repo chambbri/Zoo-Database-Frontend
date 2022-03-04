@@ -11,8 +11,8 @@ function AnimalsPage(){
 
     const getAnimals = async () => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/animals');
-        const animals = await res.join()
-        setAnimals(animals)
+        const animals = await res.json();
+        setAnimals(animals);
     };
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function AnimalsPage(){
 
     return(
         <body>
-            <h1>West Coast Best Coast Zoo Animalss</h1>
+            <h1>West Coast Best Coast Zoo Animals</h1>
             <div>
                 <InsertAnimal />
             </div>
