@@ -16,7 +16,7 @@ function EmployeeList({ employees }) {
                 </tr>
             </thead>
             <tbody>
-                {(employees ?? []).map((employee, i) => <Employee employee={employee} key={i} />)}
+                {employees.map((employee, i) => <Employee employee={employee} key={i}></Employee>)}
             </tbody>
         </table>
     )

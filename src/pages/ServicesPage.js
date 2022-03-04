@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import exhibits from '../data/exhibits';
 import InsertServices from '../components/services/InsertServices';
 import ServiceList from '../components/services/ServicesList';
 

@@ -16,7 +16,7 @@ function AnimalList({ animals }) {
                 </tr>
             </thead>
             <tbody>
-                {(animals ?? []).map((animal, i) => <Animal animal={animal} key={i} />)}
+                {animals.map((animal, i) => <Animal animal={animal} key={i}></Animal>)}
             </tbody>
         </table>
     )
