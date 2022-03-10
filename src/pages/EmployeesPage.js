@@ -15,15 +15,6 @@ function EmployeesPage() {
     const [job, setJob] = useState('');
     const navigate = useNavigate();
 
-    const getEmployees = async() => {
-        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/employees');
-        const employees = await res.json();
-        setEmployees(employees)
-    };
-
-    useEffect(() => {
-        getEmployees();
-    }, []);
 
     const addEmployee = () => {
         Axios.post('http://flip1.engr.oregonstate.edu:22131/employees', {
@@ -36,6 +27,25 @@ function EmployeesPage() {
             alert("Successfully added Employees")
         });
     };
+
+    const onDelete = async fname => {
+        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/employees' + `/${fname}`, {method: 'DELETE'});
+        if(response.status === 200) {
+            setEmployees(employees.filter(e => e.employees !== employees))
+        } else {
+            console.error(`Failed to delete row`)
+        }
+    }
+
+    const getEmployees = async () => {
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/employees');
+        const employees = await res.json();
+        setEmployees(employees)
+    };
+
+    useEffect(() => {
+        getEmployees();
+    }, []);
 
     return(
         <>
@@ -54,7 +64,7 @@ function EmployeesPage() {
             </form>
             <br />
             <div>
-                <EmployeeList employees={employees} />
+                <EmployeeList onDelete={onDelete} employees={employees} />
             </div>
             <br />
         </div>

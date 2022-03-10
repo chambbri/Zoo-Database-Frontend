@@ -1,11 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import InsertAnimal from '../components/animals/InsertAnimal';
 import AnimalList from '../components/animals/AnimalList';
 import AnimalSearch from '../components/animals/AnimalSearch';
 import Axios from 'axios';
 
-function AnimalsPage(){
+function AnimalsPage( exhibits ) {
 
     const [animals, setAnimals] = useState([]);
     const [exhibit, setExhibit] = useState('');
@@ -45,20 +44,17 @@ function AnimalsPage(){
                 <fieldset>
                     <legend>Add an animal</legend>
                     <label>Animal Type<input type="text" id="animaltype" value={type} onChange={e => setAnimalType(e.target.value)}/></label>
-                    <label>Exhibit
-                    <select name="exhibit" id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                    <label htmlFor='exhibit'>Exhibit</label>
+                    <select type="number" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}>
+                        <option value="">Select the exhibit</option>
                     </select>
-                    </label>
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
-                    <label>Gender
-                    <select name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
+                    <label htmlFor='gender'>Gender</label>
+                    <select type="text" name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
                         <option value="female">Male</option>
                         <option value="male">Female</option>
                     </select>
-                    </label>
                     <button onClick={addAnimal}>Add</button>
                 </fieldset>
             </form>

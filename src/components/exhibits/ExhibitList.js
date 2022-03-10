@@ -1,7 +1,7 @@
 import React from 'react';
 import Exhibit from './Exhibit';
 
-function ExhibitList({exhibits, deleteExhibit}) {
+function ExhibitList({exhibits}) {
     return(
         <table>
             <thead>
@@ -14,7 +14,7 @@ function ExhibitList({exhibits, deleteExhibit}) {
                 </tr>
             </thead>
             <tbody>
-                {exhibits.map((exhibit, i) => <Exhibit exhibit={exhibit} deleteExhibit={deleteExhibit} key={i}></Exhibit>)}
+                {exhibits.map((exhibit, i) => <Exhibit exhibit={exhibit} key={i}></Exhibit>)}
             </tbody>
         </table>
     )
