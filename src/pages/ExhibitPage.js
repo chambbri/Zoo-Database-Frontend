@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InsertExhibit from '../components/exhibits/InsertExhibit';
 import ExhibitList from '../components/exhibits/ExhibitList';
+import Axios from "axios";
 
 
 function ExhibitPage() {
@@ -8,7 +10,8 @@ function ExhibitPage() {
     const [exhibits, setExhibits] = useState([]);
     const [type, setType] = useState('');
     const [size, setSize] = useState('');
-    const [capacity, setCapcity] = useState('');
+    const [capacity, setCapacity] = useState('');
+    const navigate = useNavigate();
 
     const getExhibits = async() => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
@@ -20,21 +23,15 @@ function ExhibitPage() {
         getExhibits();
     }, []);
 
-    const addExhibit = async() => {
-        const newExhibit = {type, size, capacity};
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits', {
-            method: 'POST',
-            body: JSON.stringify(newExhibit),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+    const addExhibit = () => {
+        Axios.post('http://flip1.engr.oregonstate.edu:22131/exhibits', {
+            type: type,
+            size: size,
+            animal_capacity: capacity,
+        }).then(() => {
+            alert("Successfully added Exhibit")
         });
-        if(response.status === 201){
-            alert("Successfully created the exhibit");
-        } else{
-            console.error(`Failed to create the exhibit. Status code ${response.status}`);
-        }
-    }
+    };
 
 
 
@@ -48,7 +45,7 @@ function ExhibitPage() {
                 <label>Type of Exhibit <input type="text" id="type" value={type} onChange = {e =>setType(e.target.value)}/></label>
                 <label>Size<input type="int" id="size" value={size} onChange = {e =>setSize(e.target.value)}/></label>
                 <br />
-                <label>Animal Capacity <input type="int" id="capacity" value={capacity} onChange = {e =>setCapcity(e.target.value)} /></label>
+                <label>Animal Capacity <input type="int" id="capacity" value={capacity} onChange = {e =>setCapacity(e.target.value)} /></label>
                 <br />
                 <button onClick={addExhibit}>Add</button>
             </fieldset>
