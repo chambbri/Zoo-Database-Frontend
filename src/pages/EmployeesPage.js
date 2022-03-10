@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import InsertEmployee from '../components/employees/InsertEmployee';
 import EmployeeList from '../components/employees/EmployeeList';
 import Axios from 'axios';
@@ -13,6 +13,7 @@ function EmployeesPage() {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [job, setJob] = useState('');
+    const navigate = useNavigate();
 
     const getEmployees = async() => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/employees');
