@@ -13,6 +13,16 @@ function ExhibitPage() {
     const [capacity, setCapacity] = useState('');
     const navigate = useNavigate();
 
+    const getExhibits = async() => {
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
+        const exhibits = await res.json();
+        setExhibits(exhibits);
+    };
+
+    useEffect(() => {
+        getExhibits();
+    }, []);
+
     const addExhibit = () => {
         Axios.post('http://flip1.engr.oregonstate.edu:22131/exhibits', {
             type: type,
@@ -26,17 +36,6 @@ function ExhibitPage() {
     const deleteExhibit = (exhibit_id) => {
         Axios.delete(`http://flip1.engr.oregonstate.edu:22131/exhibits/${exhibit_id}`);
     }
-
-    const getExhibits = async () => {
-        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
-        const exhibits = await res.json();
-        setExhibits(exhibits);
-    };
-
-    useEffect(() => {
-        getExhibits();
-    }, []);
-
 
 
     return (
