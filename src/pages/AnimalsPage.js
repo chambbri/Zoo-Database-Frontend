@@ -56,7 +56,7 @@ function AnimalsPage(){
                         <option value="female">Male</option>
                         <option value="male">Female</option>
                     </select>
-                    <button type="button">Add</button>
+                    <button onClick={addAnimal}>Add</button>
                 </fieldset>
             </form>
             <br />
