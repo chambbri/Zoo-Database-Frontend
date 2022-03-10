@@ -33,6 +33,9 @@ function ExhibitPage() {
         });
     };
 
+    const deleteExhibit = (exhibit_id) => {
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/exhibits/${exhibit_id}`);
+    }
 
 
     return (
@@ -51,7 +54,7 @@ function ExhibitPage() {
             </fieldset>
             </form>
             <br />
-            <ExhibitList exhibits={exhibits}/>
+            <ExhibitList exhibits={exhibits} deleteExhibit={deleteExhibit}/>
             <br />
         </div>
         </>
