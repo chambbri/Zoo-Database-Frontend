@@ -28,8 +28,8 @@ function EmployeesPage() {
         });
     };
 
-    const onDelete = async fname => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/employees' + `/${fname}`, {method: 'DELETE'});
+    const onDelete = async employee_id => {
+        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/employees' + `/${employee_id}`, {method: 'DELETE'});
         if(response.status === 200) {
             setEmployees(employees.filter(e => e.employees !== employees))
         } else {

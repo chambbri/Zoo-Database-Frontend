@@ -36,6 +36,15 @@ function AnimalsPage( exhibits ) {
         });
     };
 
+    const deleteAnimal = async animal_id => {
+        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/animals' + `/${animal_id}`, {method: 'DELETE'});
+        if(response.status === 200) {
+            setAnimals(animals.filter(e => e.animals !== animals))
+        } else {
+            console.error(`Failed to delete row`)
+        }
+    }
+
 
     return(
         <body>
@@ -60,7 +69,7 @@ function AnimalsPage( exhibits ) {
             </form>
             <br />
             <div>
-                <AnimalList animals={animals} />
+                <AnimalList animals={animals} deleteAnimal={deleteAnimal} />
             </div>
             <br />
             <div>
