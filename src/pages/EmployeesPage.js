@@ -38,7 +38,8 @@ function EmployeesPage() {
     };
 
     return(
-        <body>
+        <>
+        <div className='app-container'>
             <h1>West Coast Best Coast Zoo Employees</h1>
             <form>
                 <fieldset>
@@ -56,7 +57,8 @@ function EmployeesPage() {
                 <EmployeeList employees={employees} />
             </div>
             <br />
-        </body>
+        </div>
+        </>
     )
 }
 
