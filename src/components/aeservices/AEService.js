@@ -1,11 +1,12 @@
 import React from 'react';
 
-function AEService({ aeservice }) {
+function AEService({ aeservice, deleteAEService }) {
     return (
         <tr>
+            <td>{aeservice.aeservice_id}</td>
             <td>{aeservice.animal_services_id}</td>
             <td>{aeservice.employee_id}</td>
-            <td><button type="button">Edit</button><button type="button">Delete</button></td>
+            <td><button type="button">Edit</button><button onClick={() => deleteAEService(aeservice.aeservice_id)}>Delete</button></td>
         </tr>
     );
 }

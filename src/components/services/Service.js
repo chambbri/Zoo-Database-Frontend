@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Service({ service }) {
+function Service({ service, deleteService }) {
     return (
         <tr>
             <td>{service.animal_services_id}</td>
@@ -8,7 +8,7 @@ function Service({ service }) {
             <td>{service.date}</td>
             <td>{service.time}</td>
             <td>{service.type_of_care}</td>
-            <td><button type="button">Edit</button><button type="button">Delete</button></td>
+            <td><button type="button">Edit</button><button onClick={() => deleteService(service.animal_services_id)}>Delete</button></td>
         </tr>
     );
 }

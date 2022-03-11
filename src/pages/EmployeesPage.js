@@ -28,7 +28,7 @@ function EmployeesPage() {
         });
     };
 
-    const onDelete = async employee_id => {
+    const deleteEmployee = async employee_id => {
         const response = await fetch('http://flip1.engr.oregonstate.edu:22131/employees' + `/${employee_id}`, {method: 'DELETE'});
         if(response.status === 200) {
             setEmployees(employees.filter(e => e.employees !== employees))
@@ -64,7 +64,7 @@ function EmployeesPage() {
             </form>
             <br />
             <div>
-                <EmployeeList onDelete={onDelete} employees={employees} />
+                <EmployeeList deleteEmployee={deleteEmployee} employees={employees} />
             </div>
             <br />
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Employee from './Employee';
 
-function EmployeeList({ employees, onDelete }) {
+function EmployeeList({ employees, deleteEmployee }) {
     return (
         <table>
             <thead>
@@ -16,7 +16,7 @@ function EmployeeList({ employees, onDelete }) {
                 </tr>
             </thead>
             <tbody>
-                {employees.map((employee, i) => <Employee onDelete={onDelete} employee={employee} key={i}></Employee>)}
+                {employees.map((employee, i) => <Employee deleteEmployee={deleteEmployee} employee={employee} key={i}></Employee>)}
             </tbody>
         </table>
     )

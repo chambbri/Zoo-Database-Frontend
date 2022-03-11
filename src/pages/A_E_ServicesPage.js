@@ -2,9 +2,12 @@ import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InsertAEService from '../components/aeservices/InsertAEService';
 import AEServiceList from '../components/aeservices/AEServiceList';
+import { Axios } from 'axios';
 
 function AEServicePage() {
     const [aeservices, setAEServices] = useState([]);
+    const [service, setService] = useState('');
+    const [employee, setEmployee] = useState('');
     const [createAEService, setCreateAEService] = useState([]);
 
     const getAEServices = async () => {
@@ -17,15 +20,39 @@ function AEServicePage() {
         getAEServices();
     }, []);
 
+    const addAEServices = () => {
+        Axios.post('http://flip1.engr.oregonstate.edu:22131/animalemployeeservices', {
+            animal_services_id: service,
+            employee_id: employee,
+        }).then(() => {
+            alert("Successfully added Animal Employee Services")
+        });
+    };
+
+    const deleteAEService = async aeservices_id => {
+        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/animalemployeeservices' + `/${aeservices_id}`, { method: 'DELETE' });
+        if (response.status === 200) {
+            setAEServices(aeservices.filter(e => e.aeservices !== aeservices))
+        } else {
+            console.error(`Failed to delete row`)
+        }
+    }
+
+
     return (
         <body>
             <h1>West Coast Best Coast Zoo Animals</h1>
-            <div>
-                <InsertAEService />
-            </div>
+            <form>
+                <fieldset>
+                    <legend>Add an entry</legend>
+                    <label>animal_services_id<input type="text" id="animalservid" value={service} onChange={e => setService(e.target.value)} /></label>
+                    <label>employee_id<input type="text" id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)} /></label>
+                    <button onClick={addAEServices}>Add</button>
+                </fieldset>
+            </form>
             <br />
             <div>
-               <AEServiceList aeservices={aeservices} />
+               <AEServiceList deleteAEService={deleteAEService} aeservices={aeservices} />
             </div>
         </body>
     )
