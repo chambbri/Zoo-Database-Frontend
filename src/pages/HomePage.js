@@ -5,18 +5,6 @@ import { Link } from 'react-router-dom';
 function HomePage() {
 
 
-    const [exhibits, setExhibits] = useState([]);
-
-    const getExhibits = async () => {
-        const response = await fetch('localhost-serve:22130/exhibits')
-        const exhibits = await response.json();
-        setExhibits(exhibits)
-    }
-
-    useEffect(() => {
-        getExhibits();
-    }, [])
-
     return (
 
         <>
