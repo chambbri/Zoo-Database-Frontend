@@ -53,16 +53,13 @@ function AnimalsPage( exhibits ) {
                 <fieldset>
                     <legend>Add an animal</legend>
                     <label>Animal Type<input type="text" id="animaltype" value={type} onChange={e => setAnimalType(e.target.value)}/></label>
-                    <label htmlFor='exhibit'>Exhibit</label>
-                    <select type="number" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}>
-                        <option value="">Select the exhibit</option>
-                    </select>
+                    <label>Exhibit<input type ="int" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
                     <label htmlFor='gender'>Gender</label>
                     <select type="text" name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
-                        <option value="female">Male</option>
-                        <option value="male">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                     <button onClick={addAnimal}>Add</button>
                 </fieldset>
