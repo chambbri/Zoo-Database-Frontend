@@ -6,7 +6,6 @@ function AEServiceList({ aeservices, deleteAEService }) {
         <table>
             <thead>
                 <tr>
-                    <th>Animal Employe Service ID</th>
                     <th>Animal Service ID</th>
                     <th>Employee ID</th>
                     <th>Actions</th>

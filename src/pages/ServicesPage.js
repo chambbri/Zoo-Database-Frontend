@@ -49,7 +49,7 @@ function ServicesPage() {
                 <form>
                 <fieldset>
                     <legend>Add A Service</legend>
-                    <label>Animal <input type="text" id="animal" name="animal" /></label>
+                    <label>Animal <input type="text" id="animal" name="animal" value = {animal} onChange = {e => setAnimal(e.target.value)}/></label>
                     <label>Date <input type="date" id="date" value={date} onChange = {e => setDate(e.target.value)} /></label>
                     <br />
                     <label>Time <input type="time" id="time" value={time} onChange= {e => setTime(e.target.value)} /></label>
