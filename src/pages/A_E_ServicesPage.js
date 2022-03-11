@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InsertAEService from '../components/aeservices/InsertAEService';
 import AEServiceList from '../components/aeservices/AEServiceList';
-import { Axios } from 'axios';
+import Axios from "axios";
 
 function AEServicePage() {
     const [aeservices, setAEServices] = useState([]);
@@ -45,8 +45,8 @@ function AEServicePage() {
             <form>
                 <fieldset>
                     <legend>Add an entry</legend>
-                    <label>animal_services_id<input type="text" id="animalservid" value={service} onChange={e => setService(e.target.value)} /></label>
-                    <label>employee_id<input type="text" id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)} /></label>
+                    <label>animal_services_id<input type="int" id="animalservid" value={service} onChange={e => setService(e.target.value)} /></label>
+                    <label>employee_id<input type="int" id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)} /></label>
                     <button onClick={addAEServices}>Add</button>
                 </fieldset>
             </form>
