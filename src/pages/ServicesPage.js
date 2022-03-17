@@ -33,13 +33,9 @@ function ServicesPage() {
         });
     };
 
-    const deleteService = async animal_service_id => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/animalservices' + `/${animal_service_id}`, { method: 'DELETE' });
-        if (response.status === 200) {
-            setServices(services.filter(e => e.services !== services))
-        } else {
-            console.error(`Failed to delete row`)
-        }
+    const deleteService = (animal_service_id) => {
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/animalservices/${animal_service_id}`);
+        setTimeout(() => getServices(), 500)
     }
 
     return (

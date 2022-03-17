@@ -29,13 +29,9 @@ function AEServicePage() {
         });
     };
 
-    const deleteAEService = async animal_service_id => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/animalemployeeservices' + `/${animal_service_id}`, { method: 'DELETE' });
-        if (response.status === 200) {
-            setAEServices(aeservices.filter(e => e.aeservices !== aeservices))
-        } else {
-            console.error(`Failed to delete row`)
-        }
+    const deleteAEService = (animal_service_id) => {
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/animalemployeeservices/${animal_service_id}`);
+        setTimeout(() => getAEServices(), 500)
     }
 
 

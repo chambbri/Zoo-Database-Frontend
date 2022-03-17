@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AnimalList from '../components/animals/AnimalList';
 import AnimalSearch from '../components/animals/AnimalSearch';
 import Axios from 'axios';
+import axios from 'axios';
 
 function AnimalsPage( exhibits ) {
 
@@ -36,13 +37,9 @@ function AnimalsPage( exhibits ) {
         });
     };
 
-    const deleteAnimal = async animal_id => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/animals' + `/${animal_id}`, {method: 'DELETE'});
-        if(response.status === 200) {
-            setAnimals(animals.filter(e => e.animals !== animals))
-        } else {
-            console.error(`Failed to delete row`)
-        }
+    const deleteAnimal = (animal_id) => {
+        axios.delete(`http://flip1.engr.oregonstate.edu:22131/animals/${animal_id}`);
+        setTimeout(() => getAnimals(), 500)
     }
 
 
