@@ -7,7 +7,7 @@ function Exhibit({ exhibit, deleteExhibit }) {
             <td>{exhibit.type}</td>
             <td>{exhibit.size}</td>
             <td>{exhibit.animal_capacity}</td>
-            <td><button type="button">Edit</button><button type="button" onClick={ () => deleteExhibit(exhibit.exhibit_id)}>Delete</button></td>
+            <td><button type="button">Edit</button><button onClick={ () => deleteExhibit(exhibit.exhibit_id)}>Delete</button></td>
         </tr>
     );
 }

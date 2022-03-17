@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import InsertEmployee from '../components/employees/InsertEmployee';
 import EmployeeList from '../components/employees/EmployeeList';
 import Axios from 'axios';
+import axios from 'axios';
 
 function EmployeesPage() {
 
@@ -28,13 +29,9 @@ function EmployeesPage() {
         });
     };
 
-    const deleteEmployee = async employee_id => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/employees' + `/${employee_id}`, {method: 'DELETE'});
-        if(response.status === 200) {
-            setEmployees(employees.filter(e => e.employees !== employees))
-        } else {
-            console.error(`Failed to delete row`)
-        }
+    const deleteEmployee = (employee_id) => {
+        axios.delete(`http://flip1.engr.oregonstate.edu:22131/employees/${employee_id}`);
+        setTimeout(() => getEmployees(), 500)
     }
 
     const getEmployees = async () => {
