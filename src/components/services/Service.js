@@ -1,6 +1,8 @@
 import React from 'react';
+import Moment from 'moment';
 
 function Service({ service, deleteService, editService }) {
+    service.date = Moment(service.date).format('YYYY-MM-DD')
     return (
         <tr>
             <td>{service.animal_services_id}</td>

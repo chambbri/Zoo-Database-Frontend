@@ -1,6 +1,8 @@
 import React from 'react';
+import Moment from 'moment';
 
 function Animal({ animal, deleteAnimal, editAnimal }) {
+    animal.birthdate = Moment(animal.birthdate).format('YYYY-MM-DD')
     return (
         <tr>
             <td>{animal.animal_id}</td>
