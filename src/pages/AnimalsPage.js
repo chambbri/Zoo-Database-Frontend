@@ -54,7 +54,7 @@ function AnimalsPage( exhibits ) {
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
                     <label htmlFor='gender'>Gender</label>
-                    <select type="text" name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
+                    <select name="gender" id="gender" value = {gender} onChange={e => setGender(e.target.value)}>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>

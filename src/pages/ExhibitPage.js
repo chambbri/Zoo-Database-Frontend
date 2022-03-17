@@ -5,7 +5,7 @@ import ExhibitList from '../components/exhibits/ExhibitList';
 import Axios from "axios";
 
 
-function ExhibitPage() {
+function ExhibitPage( { setExhibitToEdit }) {
 
     const [exhibits, setExhibits] = useState([]);
     const [type, setType] = useState('');
@@ -33,6 +33,11 @@ function ExhibitPage() {
         });
     };
 
+    const editExhibit = exhibit => {
+        setExhibitToEdit(exhibit);
+        navigate('/edit-exhibit');
+    }
+
     const deleteExhibit = async exhibit_id => {
         const response = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits' + `/${exhibit_id}`, {method: 'DELETE'});
         if(response.status === 200) {
@@ -40,7 +45,7 @@ function ExhibitPage() {
         } else {
             console.error(`Failed to delete row`)
         }
-    }
+    };
 
 
     return (
@@ -59,7 +64,7 @@ function ExhibitPage() {
             </fieldset>
             </form>
             <br />
-            <ExhibitList exhibits={exhibits} deleteExhibit={deleteExhibit}/>
+            <ExhibitList exhibits={exhibits} deleteExhibit={deleteExhibit} editExhibit={editExhibit}/>
             <br />
         </div>
         </>
