@@ -21,6 +21,11 @@ function AnimalsPage( {setAnimalToEdit}) {
         setAnimals(animals);
     };
 
+    const searchAnimal = async(animal_type) => {
+        const res = await fetch(`http://flip1.engr.oregonstate.edu:22131/animals/${animal_type}`)
+        const animal = await res.json();
+    }
+
     useEffect(() => {
         getAnimals();
     }, []);
@@ -72,7 +77,7 @@ function AnimalsPage( {setAnimalToEdit}) {
             </div>
             <br />
             <div>
-                <AnimalSearch/>
+                <AnimalSearch searchAnimal={searchAnimal}/>
             </div>
         </body>
     )
