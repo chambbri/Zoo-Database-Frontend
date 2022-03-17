@@ -1,7 +1,7 @@
 import React from 'react';
 import Animal from './Animal';
 
-function AnimalList({ animals, deleteAnimal }) {
+function AnimalList({ animals, deleteAnimal, editAnimal }) {
     return (
         <table>
             <thead>
@@ -16,7 +16,7 @@ function AnimalList({ animals, deleteAnimal }) {
                 </tr>
             </thead>
             <tbody>
-                {animals.map((animal, i) => <Animal animal={animal} deleteAnimal={deleteAnimal} key={i}></Animal>)}
+                {animals.map((animal, i) => <Animal animal={animal} deleteAnimal={deleteAnimal} editAnimal={editAnimal} key={i}></Animal>)}
             </tbody>
         </table>
     )

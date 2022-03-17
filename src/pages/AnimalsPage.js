@@ -5,7 +5,7 @@ import AnimalSearch from '../components/animals/AnimalSearch';
 import Axios from 'axios';
 import axios from 'axios';
 
-function AnimalsPage( exhibits ) {
+function AnimalsPage( {setAnimalToEdit}) {
 
     const [animals, setAnimals] = useState([]);
     const [exhibit, setExhibit] = useState('');
@@ -37,6 +37,11 @@ function AnimalsPage( exhibits ) {
         });
     };
 
+    const editAnimal = animal => {
+        setAnimalToEdit(animal);
+        navigate('/edit-animal');
+    }
+
     const deleteAnimal = (animal_id) => {
         axios.delete(`http://flip1.engr.oregonstate.edu:22131/animals/${animal_id}`);
         setTimeout(() => getAnimals(), 500)
@@ -63,11 +68,11 @@ function AnimalsPage( exhibits ) {
             </form>
             <br />
             <div>
-                <AnimalList animals={animals} deleteAnimal={deleteAnimal} />
+                <AnimalList animals={animals} deleteAnimal={deleteAnimal} editAnimal={editAnimal} />
             </div>
             <br />
             <div>
-                <AnimalSearch />
+                <AnimalSearch/>
             </div>
         </body>
     )
