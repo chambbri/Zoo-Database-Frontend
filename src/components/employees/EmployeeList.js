@@ -1,7 +1,7 @@
 import React from 'react';
 import Employee from './Employee';
 
-function EmployeeList({ employees, deleteEmployee }) {
+function EmployeeList({ employees, deleteEmployee, editEmployee }) {
     return (
         <table>
             <thead>
@@ -16,7 +16,7 @@ function EmployeeList({ employees, deleteEmployee }) {
                 </tr>
             </thead>
             <tbody>
-                {employees.map((employee, i) => <Employee deleteEmployee={deleteEmployee} employee={employee} key={i}></Employee>)}
+                {employees.map((employee, i) => <Employee deleteEmployee={deleteEmployee} employee={employee} key={i} editEmployee={editEmployee}></Employee>)}
             </tbody>
         </table>
     )

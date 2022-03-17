@@ -1,7 +1,7 @@
 import React from 'react';
 import AEService from './AEService';
 
-function AEServiceList({ aeservices, deleteAEService }) {
+function AEServiceList({ aeservices, deleteAEService, editAEService }) {
     return (
         <table>
             <thead>
@@ -12,7 +12,7 @@ function AEServiceList({ aeservices, deleteAEService }) {
                 </tr>
             </thead>
             <tbody>
-                {aeservices.map((aeservice, i) => <AEService deleteAEService={deleteAEService} aeservice={aeservice} key={i}></AEService>)}
+                {aeservices.map((aeservice, i) => <AEService deleteAEService={deleteAEService} aeservice={aeservice} key={i} editAEService={editAEService}></AEService>)}
             </tbody>
         </table>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Employee({ employee, deleteEmployee }) {
+function Employee({ employee, deleteEmployee, editEmployee }) {
     return (
         <tr>
             <td>{employee.employee_id}</td>
@@ -9,7 +9,7 @@ function Employee({ employee, deleteEmployee }) {
             <td>{employee.phone}</td>
             <td>{employee.email}</td>
             <td>{employee.job_title}</td>
-            <td><button type="button">Edit</button><button onClick={() => deleteEmployee(employee.employee_id)}>Delete</button></td>
+            <td><button type="button" onClick={() => editEmployee(employee)}>Edit</button><button onClick={() => deleteEmployee(employee.employee_id)}>Delete</button></td>
         </tr>
     );
 }

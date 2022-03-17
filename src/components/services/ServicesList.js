@@ -1,7 +1,7 @@
 import React from 'react';
 import Service from './Service';
 
-function ServiceList({ services, deleteService }) {
+function ServiceList({ services, deleteService, editService }) {
     return (
         <table>
             <thead>
@@ -15,7 +15,7 @@ function ServiceList({ services, deleteService }) {
                 </tr>
             </thead>
             <tbody>
-                {services.map((service, i) => <Service deleteService={deleteService} service={service} key={i}></Service>)}
+                {services.map((service, i) => <Service deleteService={deleteService} service={service} key={i} editService={editService}></Service>)}
             </tbody>
         </table>
     )

@@ -3,31 +3,35 @@ import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
 export const EditEmployeePage = ({ employeeToEdit }) => {
-    const [type, setType] = useState(employeeToEdit.type);
-    const [size, setSize] = useState(employeeToEdit.size);
-    const [animal_capacity, setCapacity] = useState(employeeToEdit.animal_capacity);
+    const [fname, setFname] = useState(employeeToEdit.fname);
+    const [lname, setLname] = useState(employeeToEdit.lname);
+    const [phone, setPhone] = useState(employeeToEdit.phone);
+    const [email, setEmail] = useState(employeeToEdit.email);
+    const [job, setJob] = useState(employeeToEdit.job_title);
     const navigate = useNavigate();
 
     const editEmployee = () => {
         Axios.put('http://flip1.engr.oregonstate.edu:22131/employees' + `/${employeeToEdit.employee_id}`, {
-            type: type,
-            size: size,
-            animal_capacity: animal_capacity,
+            fname: fname,
+            lname: lname,
+            phone: phone,
+            email: email,
+            job_title: job,
         })
-        navigate('/exhibits')
+        navigate('/employees')
     };
 
 
     return (
         <>
             <div className='app-container'>
-                <h2>Edit exhibit</h2>
-                <label>Type of Exhibit <input type="text" id="type" value={type} onChange = {e =>setType(e.target.value)}/></label>
-                <label>Size<input type="int" id="size" value={size} onChange = {e =>setSize(e.target.value)}/></label>
-                <br />
-                <label>Animal Capacity <input type="int" id="capacity" value={animal_capacity} onChange = {e =>setCapacity(e.target.value)} /></label>
-                <br />
-                <button onClick={editExhibit}>Save</button>
+                <h2>Edit employee</h2>
+                <label>First Name <input type="text" id="fname" value={fname} onChange={e =>setFname(e.target.value)} /></label>
+                <label>Last Name <input type="text" id="lname" value={lname} onChange={e =>setLname(e.target.value)} /></label>
+                <label>Phone Number <input type="tel" id="phone" value={phone} onChange={e =>setPhone(e.target.value)} /></label>
+                <label>Email<input type="email" id="email" value={email} onChange={e =>setEmail(e.target.value)} /></label>
+                <label>Job Title<input type="text" id="job" value={job} onChange={e =>setJob(e.target.value)} /></label>
+                <button onClick={editEmployee}>Save</button>
             </div>
         </>
     );

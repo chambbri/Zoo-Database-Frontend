@@ -1,14 +1,14 @@
 import { React, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import InsertAEService from '../components/aeservices/InsertAEService';
 import AEServiceList from '../components/aeservices/AEServiceList';
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-function AEServicePage() {
+function AEServicePage( {setAEServiceToEdit} ) {
     const [aeservices, setAEServices] = useState([]);
     const [service, setService] = useState('');
     const [employee, setEmployee] = useState('');
-    const [createAEService, setCreateAEService] = useState([]);
+    const navigate = useNavigate();
+
 
     const getAEServices = async () => {
         const res = await fetch('http://flip1.engr.oregonstate.edu:22131/animalemployeeservices');
@@ -29,8 +29,13 @@ function AEServicePage() {
         });
     };
 
-    const deleteAEService = (animal_service_id) => {
-        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/animalemployeeservices/${animal_service_id}`);
+    const editAEService = a_e_service => {
+        setAEServiceToEdit(a_e_service);
+        navigate('/edit-animal-employee-service');
+    }
+
+    const deleteAEService = (animal_service_id, employee_id) => {
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/animalemployeeservices/${animal_service_id}/${employee_id}`);
         setTimeout(() => getAEServices(), 500)
     }
 
@@ -48,7 +53,7 @@ function AEServicePage() {
             </form>
             <br />
             <div>
-               <AEServiceList deleteAEService={deleteAEService} aeservices={aeservices} />
+               <AEServiceList deleteAEService={deleteAEService} aeservices={aeservices} editAEService={editAEService}/>
             </div>
         </body>
     )

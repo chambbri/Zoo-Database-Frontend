@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import InsertEmployee from '../components/employees/InsertEmployee';
 import EmployeeList from '../components/employees/EmployeeList';
 import Axios from 'axios';
-import axios from 'axios';
 
-function EmployeesPage() {
+function EmployeesPage( {setEmployeeToEdit }) {
 
     const [employees, setEmployees] = useState([]);
     const [fname, setFname] = useState('');
@@ -29,8 +28,13 @@ function EmployeesPage() {
         });
     };
 
+    const editEmployee = employee => {
+        setEmployeeToEdit(employee);
+        navigate('/edit-employee');
+    }
+
     const deleteEmployee = (employee_id) => {
-        axios.delete(`http://flip1.engr.oregonstate.edu:22131/employees/${employee_id}`);
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/employees/${employee_id}`);
         setTimeout(() => getEmployees(), 500)
     }
 
@@ -61,7 +65,7 @@ function EmployeesPage() {
             </form>
             <br />
             <div>
-                <EmployeeList deleteEmployee={deleteEmployee} employees={employees} />
+                <EmployeeList deleteEmployee={deleteEmployee} employees={employees} editEmployee={editEmployee} />
             </div>
             <br />
         </div>

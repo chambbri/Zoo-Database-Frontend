@@ -2,14 +2,16 @@ import { React, useState, useEffect } from 'react';
 import InsertServices from '../components/services/InsertServices';
 import ServiceList from '../components/services/ServicesList';
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-function ServicesPage() {
+function ServicesPage({ setServiceToEdit }) {
 
     const [services, setServices] = useState([]);
     const [animal, setAnimal] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [caretype, setCaretype] = useState('');
+    const navigate = useNavigate();
 
 
     const getServices = async() => {
@@ -33,6 +35,11 @@ function ServicesPage() {
         });
     };
 
+    const editService = animal_service => {
+        setServiceToEdit(animal_service);
+        navigate('/edit-service');
+    }
+
     const deleteService = (animal_service_id) => {
         Axios.delete(`http://flip1.engr.oregonstate.edu:22131/animalservices/${animal_service_id}`);
         setTimeout(() => getServices(), 500)
@@ -55,7 +62,7 @@ function ServicesPage() {
                 </fieldset>
                 </form>
                 <br />
-                <ServiceList services = {services} deleteService={deleteService}/>
+                <ServiceList services = {services} deleteService={deleteService} editService={editService}/>
                 <br />
             </div>
         </>
