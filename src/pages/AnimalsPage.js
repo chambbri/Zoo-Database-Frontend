@@ -12,7 +12,7 @@ function AnimalsPage( {setAnimalToEdit}) {
     const [type, setAnimalType] = useState('');
     const [country, setOriginCountry] = useState('');
     const [birthdate, setBirthdate] = useState('');
-    const [gender, setGender] = useState('');
+    const [gender, setGender] = useState('Male');
     const navigate = useNavigate()
 
     const getAnimals = async () => {
@@ -23,7 +23,8 @@ function AnimalsPage( {setAnimalToEdit}) {
 
     const searchAnimal = async(animal_type) => {
         const res = await fetch(`http://flip1.engr.oregonstate.edu:22131/animals/${animal_type}`)
-        const animal = await res.json();
+        const animals = await res.json();
+        setAnimals(animals)
     }
 
     useEffect(() => {
@@ -60,7 +61,7 @@ function AnimalsPage( {setAnimalToEdit}) {
                 <fieldset>
                     <legend>Add an animal</legend>
                     <label>Animal Type<input type="text" id="animaltype" value={type} onChange={e => setAnimalType(e.target.value)}/></label>
-                    <label>Exhibit<input type ="int" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
+                    <label>Exhibit<input type ="number" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
                     <label htmlFor='gender'>Gender</label>
@@ -77,7 +78,7 @@ function AnimalsPage( {setAnimalToEdit}) {
             </div>
             <br />
             <div>
-                <AnimalSearch searchAnimal={searchAnimal}/>
+                <AnimalSearch searchAnimal={searchAnimal} getAnimals={getAnimals}/>
             </div>
         </body>
     )
