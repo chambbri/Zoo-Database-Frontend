@@ -12,6 +12,21 @@ export const EditAnimalPage = ({ animalToEdit }) => {
     const navigate = useNavigate()
 
     const editAnimal = () => {
+        if (exhibit === 0) {
+            exhibit = null
+        }
+        if (type === "") {
+            alert("Can't leave type blank")
+        }
+        if (country === "") {
+            alert("Can't leave country blank")
+        }
+        if (country === "") {
+            alert("Can't leave birthdate blank")
+        }
+        if (gender === "") {
+            alert("Can't leave gender blank")
+        }
         Axios.put('http://flip1.engr.oregonstate.edu:22131/animals' + `/${animalToEdit.animal_id}`, {
             exhibit_id: exhibit,
             animal_type: type,
