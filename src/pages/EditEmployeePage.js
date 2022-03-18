@@ -11,6 +11,21 @@ export const EditEmployeePage = ({ employeeToEdit }) => {
     const navigate = useNavigate();
 
     const editEmployee = () => {
+        if (fname === "") {
+            alert("Can't leave fname blank")
+        }
+        if (lname === "") {
+            alert("Can't leave lname blank")
+        }
+        if (phone === "") {
+            alert("Can't leave phone blank")
+        }
+        if (email === "") {
+            alert("Can't leave email blank")
+        }
+        if (job === "") {
+            alert("Can't leave job blank")
+        }
         Axios.put('http://flip1.engr.oregonstate.edu:22131/employees' + `/${employeeToEdit.employee_id}`, {
             fname: fname,
             lname: lname,

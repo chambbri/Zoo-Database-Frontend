@@ -17,6 +17,21 @@ function EmployeesPage( {setEmployeeToEdit }) {
 
 
     const addEmployee = () => {
+        if (fname === "") {
+            alert("Can't leave fname blank")
+        }
+        if (lname === "") {
+            alert("Can't leave lname blank")
+        }
+        if (phone === "") {
+            alert("Can't leave phone blank")
+        }
+        if (email === "") {
+            alert("Can't leave email blank")
+        }
+        if (job === "") {
+            alert("Can't leave job blank")
+        }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/employees', {
             fname: fname,
             lname: lname,
