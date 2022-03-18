@@ -8,11 +8,11 @@ import Axios from 'axios';
 function EmployeesPage( {setEmployeeToEdit }) {
 
     const [employees, setEmployees] = useState([]);
-    const [fname, setFname] = useState('');
-    const [lname, setLname] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [job, setJob] = useState('');
+    const [fname, setFname] = useState();
+    const [lname, setLname] = useState();
+    const [phone, setPhone] = useState();
+    const [email, setEmail] = useState();
+    const [job, setJob] = useState();
     const navigate = useNavigate();
 
 

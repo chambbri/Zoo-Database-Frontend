@@ -8,9 +8,9 @@ import Axios from "axios";
 function ExhibitPage( { setExhibitToEdit }) {
 
     const [exhibits, setExhibits] = useState([]);
-    const [type, setType] = useState('');
-    const [size, setSize] = useState('');
-    const [capacity, setCapacity] = useState('');
+    const [type, setType] = useState();
+    const [size, setSize] = useState();
+    const [capacity, setCapacity] = useState();
     const navigate = useNavigate();
 
     const getExhibits = async() => {

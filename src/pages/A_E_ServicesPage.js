@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 function AEServicePage( {setAEServiceToEdit} ) {
     const [aeservices, setAEServices] = useState([]);
-    const [service, setService] = useState('');
-    const [employee, setEmployee] = useState('');
+    const [service, setService] = useState();
+    const [employee, setEmployee] = useState();
     const navigate = useNavigate();
 
 

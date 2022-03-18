@@ -8,10 +8,10 @@ import axios from 'axios';
 function AnimalsPage( {setAnimalToEdit}) {
 
     const [animals, setAnimals] = useState([]);
-    const [exhibit, setExhibit] = useState('');
-    const [type, setAnimalType] = useState('');
-    const [country, setOriginCountry] = useState('');
-    const [birthdate, setBirthdate] = useState('');
+    let [exhibit, setExhibit] = useState('');
+    const [type, setAnimalType] = useState();
+    const [country, setOriginCountry] = useState();
+    const [birthdate, setBirthdate] = useState();
     const [gender, setGender] = useState('Male');
     const navigate = useNavigate()
 
@@ -32,7 +32,7 @@ function AnimalsPage( {setAnimalToEdit}) {
     }, []);
 
     const addAnimal = () => {
-        if (exhibit === 0) {
+        if (exhibit === '') {
             exhibit = null
         }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/animals', {
@@ -64,7 +64,7 @@ function AnimalsPage( {setAnimalToEdit}) {
                 <fieldset>
                     <legend>Add an animal</legend>
                     <label>Animal Type<input type="text" id="animaltype" value={type} onChange={e => setAnimalType(e.target.value)}/></label>
-                    <label>Exhibit<input type ="int" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
+                    <label>Exhibit<input type ="number" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
                     <label htmlFor='gender'>Gender</label>

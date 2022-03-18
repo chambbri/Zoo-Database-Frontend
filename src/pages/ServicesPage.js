@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 function ServicesPage({ setServiceToEdit }) {
 
     const [services, setServices] = useState([]);
-    const [animal, setAnimal] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [caretype, setCaretype] = useState('');
+    const [animal, setAnimal] = useState();
+    const [date, setDate] = useState();
+    const [time, setTime] = useState();
+    const [caretype, setCaretype] = useState();
     const navigate = useNavigate();
 
 
