@@ -38,14 +38,10 @@ function ExhibitPage( { setExhibitToEdit }) {
         navigate('/edit-exhibit');
     }
 
-    const deleteExhibit = async exhibit_id => {
-        const response = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits' + `/${exhibit_id}`, {method: 'DELETE'});
-        if(response.status === 200) {
-            setExhibits(exhibits.filter(e => e.exhibits !== exhibits))
-        } else {
-            console.error(`Failed to delete row`)
-        }
-    };
+    const deleteExhibit = (exhibit_id) => {
+        Axios.delete(`http://flip1.engr.oregonstate.edu:22131/exhibits/${exhibit_id}`);
+        setTimeout(() => getExhibits(), 500)
+    }
 
 
     return (

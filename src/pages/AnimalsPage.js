@@ -42,6 +42,9 @@ function AnimalsPage( {setAnimalToEdit}) {
             alert("Successfully added Animal")
         });
     };
+    const refreshPage = () => {
+        window.location.reload()
+    }
 
     const editAnimal = animal => {
         setAnimalToEdit(animal);

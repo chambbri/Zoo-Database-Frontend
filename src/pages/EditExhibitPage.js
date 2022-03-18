@@ -3,10 +3,12 @@ import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
 export const EditExhibitPage = ({ exhibitToEdit }) => {
+
     const [type, setType] = useState(exhibitToEdit.type);
     const [size, setSize] = useState(exhibitToEdit.size);
     const [animal_capacity, setCapacity] = useState(exhibitToEdit.animal_capacity);
     const navigate = useNavigate();
+
 
     const editExhibit = () => {
         Axios.put('http://flip1.engr.oregonstate.edu:22131/exhibits' + `/${exhibitToEdit.exhibit_id}`, {
