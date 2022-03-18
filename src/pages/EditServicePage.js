@@ -10,6 +10,18 @@ export const EditServicePage = ({ serviceToEdit }) => {
     const navigate = useNavigate();
 
     const editService = () => {
+        if (animal === "") {
+            alert("Can't leave animal blank")
+        }
+        if (date === "") {
+            alert("Can't date date blank")
+        }
+        if (time === "") {
+            alert("Can't leave time blank")
+        }
+        if (caretype === "") {
+            alert("Can't leave caretype blank")
+        }
         Axios.put('http://flip1.engr.oregonstate.edu:22131/animalservices' + `/${serviceToEdit.animal_services_id}`, {
             animal_id: animal,
             date: date,

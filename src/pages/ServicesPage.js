@@ -36,6 +36,18 @@ function ServicesPage({ setServiceToEdit }) {
     }, []);
 
     const addService = () => {
+        if (animal === "") {
+            alert("Can't leave animal blank")
+        }
+        if (date === "") {
+            alert("Can't date date blank")
+        }
+        if (time === "") {
+            alert("Can't leave time blank")
+        }
+        if (caretype === "") {
+            alert("Can't leave caretype blank")
+        }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/animalservices', {
             animal_id: animal,
             date: date,
