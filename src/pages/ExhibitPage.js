@@ -24,6 +24,15 @@ function ExhibitPage( { setExhibitToEdit }) {
     }, []);
 
     const addExhibit = () => {
+        if (type === "") {
+            alert("Can't leave type blank")
+        }
+        if (size === "") {
+            alert("Can't leave size blank")
+        }
+        if (capacity === "") {
+            alert("Can't leave capacity blank")
+        }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/exhibits', {
             type: type,
             size: size,

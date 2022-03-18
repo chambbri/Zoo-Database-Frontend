@@ -41,7 +41,7 @@ function AnimalsPage( {setAnimalToEdit}) {
         if (country === "") {
             alert("Can't leave country blank")
         }
-        if (country === ""){
+        if (birthdate === ""){
             alert("Can't leave birthdate blank")
         }
         if (gender === "") {

@@ -11,6 +11,15 @@ export const EditExhibitPage = ({ exhibitToEdit }) => {
 
 
     const editExhibit = () => {
+        if (type === "") {
+            alert("Can't leave type blank")
+        }
+        if (size === "") {
+            alert("Can't leave size blank")
+        }
+        if (capacity === "") {
+            alert("Can't leave capacity blank")
+        }
         Axios.put('http://flip1.engr.oregonstate.edu:22131/exhibits' + `/${exhibitToEdit.exhibit_id}`, {
             type: type,
             size: size,
