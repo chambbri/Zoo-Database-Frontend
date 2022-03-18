@@ -39,6 +39,9 @@ function AEServicePage( {setAEServiceToEdit} ) {
         setTimeout(() => getAEServices(), 500)
     }
 
+    let animalserviceOptions = service.map((service, i) =>
+        <option key={i} value={service.animal_service_id}>`{service.animal_service_id}`</option>
+    )
 
     return (
         <body>
@@ -46,6 +49,11 @@ function AEServicePage( {setAEServiceToEdit} ) {
             <form>
                 <fieldset>
                     <legend>Add an entry</legend>
+                    <label>animal_service_id</label>
+                    <select id="animalservice" name="animalservice" value={service} onChange={e => setService(e.target.value)}>
+                        <option>Select an animal service</option>
+                        {animalserviceOptions}
+                    </select>
                     <label>animal_services_id<input type="int" id="animalservid" value={service} onChange={e => setService(e.target.value)} /></label>
                     <label>employee_id<input type="int" id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)} /></label>
                     <button onClick={addAEServices}>Add</button>
