@@ -8,29 +8,34 @@ import Axios from 'axios';
 function EmployeesPage( {setEmployeeToEdit }) {
 
     const [employees, setEmployees] = useState([]);
-    const [fname, setFname] = useState();
-    const [lname, setLname] = useState();
-    const [phone, setPhone] = useState();
-    const [email, setEmail] = useState();
-    const [job, setJob] = useState();
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [job, setJob] = useState('');
     const navigate = useNavigate();
 
 
     const addEmployee = () => {
         if (fname === "") {
             alert("Can't leave fname blank")
+            return
         }
         if (lname === "") {
             alert("Can't leave lname blank")
+            return
         }
         if (phone === "") {
             alert("Can't leave phone blank")
+            return
         }
         if (email === "") {
             alert("Can't leave email blank")
+            return
         }
         if (job === "") {
             alert("Can't leave job blank")
+            return
         }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/employees', {
             fname: fname,

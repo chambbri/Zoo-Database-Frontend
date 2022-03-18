@@ -8,9 +8,9 @@ import Axios from "axios";
 function ExhibitPage( { setExhibitToEdit }) {
 
     const [exhibits, setExhibits] = useState([]);
-    const [type, setType] = useState();
-    const [size, setSize] = useState();
-    const [capacity, setCapacity] = useState();
+    const [type, setType] = useState('');
+    const [size, setSize] = useState('');
+    const [capacity, setCapacity] = useState('');
     const navigate = useNavigate();
 
     const getExhibits = async() => {
@@ -26,12 +26,15 @@ function ExhibitPage( { setExhibitToEdit }) {
     const addExhibit = () => {
         if (type === "") {
             alert("Can't leave type blank")
+            return
         }
         if (size === "") {
             alert("Can't leave size blank")
+            return
         }
         if (capacity === "") {
             alert("Can't leave capacity blank")
+            return
         }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/exhibits', {
             type: type,

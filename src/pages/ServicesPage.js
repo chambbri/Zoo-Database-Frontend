@@ -8,10 +8,10 @@ import Moment from 'moment';
 function ServicesPage({ setServiceToEdit }) {
     const [animals, setAnimals] = useState([]);
     const [services, setServices] = useState([]);
-    const [animal, setAnimal] = useState();
-    const [date, setDate] = useState();
-    const [time, setTime] = useState();
-    const [caretype, setCaretype] = useState();
+    const [animal, setAnimal] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [caretype, setCaretype] = useState('');
     const navigate = useNavigate();
 
 
@@ -38,15 +38,19 @@ function ServicesPage({ setServiceToEdit }) {
     const addService = () => {
         if (animal === "") {
             alert("Can't leave animal blank")
+            return
         }
         if (date === "") {
             alert("Can't date date blank")
+            return
         }
         if (time === "") {
             alert("Can't leave time blank")
+            return
         }
         if (caretype === "") {
             alert("Can't leave caretype blank")
+            return
         }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/animalservices', {
             animal_id: animal,

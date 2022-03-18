@@ -6,9 +6,9 @@ import Axios from 'axios';
 import axios from 'axios';
 
 function AnimalsPage( {setAnimalToEdit}) {
-
+    const [exhibits, setExhibits] = useState([]);
     const [animals, setAnimals] = useState([]);
-    const [exhibit, setExhibit] = useState('');
+    let [exhibit, setExhibit] = useState('');
     const [type, setAnimalType] = useState('');
     const [country, setOriginCountry] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -31,21 +31,35 @@ function AnimalsPage( {setAnimalToEdit}) {
         getAnimals();
     }, []);
 
+    const getExhibits = async() => {
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/exhibits');
+        const exhibits = await res.json();
+        setExhibits(exhibits);
+    };
+
+    useEffect(() => {
+        getExhibits();
+    }, []);
+
     const addAnimal = () => {
-        if (exhibit === 0) {
+        if (exhibit === '') {
             exhibit = null
         } 
         if (type === "") {
             alert("Can't leave type blank")
+            return
         }
         if (country === "") {
             alert("Can't leave country blank")
+            return
         }
         if (birthdate === ""){
             alert("Can't leave birthdate blank")
+            return
         }
         if (gender === "") {
             alert("Can't leave gender blank")
+            return
         }
         Axios.post('http://flip1.engr.oregonstate.edu:22131/animals', {
             exhibit_id: exhibit,
@@ -69,6 +83,10 @@ function AnimalsPage( {setAnimalToEdit}) {
         setTimeout(() => getAnimals(), 500)
     }
 
+    let exhibitOptions = exhibits.map((exhibit, i) =>
+        <option key={i} value={exhibit.exhibit_id}>{exhibit.type}</option>
+    )
+
 
     return(
         <body>
@@ -77,7 +95,12 @@ function AnimalsPage( {setAnimalToEdit}) {
                 <fieldset>
                     <legend>Add an animal</legend>
                     <label>Animal Type<input type="text" id="animaltype" value={type} onChange={e => setAnimalType(e.target.value)}/></label>
-                    <label>Exhibit<input type ="int" name='exhibit' id="exhibit" value={exhibit} onChange={e => setExhibit(e.target.value)}></input></label>
+                    <label>Exhibit</label>
+                    <select id="exhibit" name="exhibit" value = {exhibit} onChange = {e => setExhibit(e.target.value)}>
+                        <option>Select an exhibit</option>
+                        <option value=''>No Exhibit</option>
+                        {exhibitOptions}
+                    </select>
                     <label>Origin Country<input type="text" id="origincountry" value={country} onChange={e => setOriginCountry(e.target.value)}/></label>
                     <label>Birthdate<input type="date" id="birthdate" value={birthdate} onChange={e => setBirthdate(e.target.value)} /></label>
                     <label htmlFor='gender'>Gender</label>

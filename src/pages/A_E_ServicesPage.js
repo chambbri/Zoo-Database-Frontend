@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 function AEServicePage( {setAEServiceToEdit} ) {
     const [aeservices, setAEServices] = useState([]);
+    const [services, setServices] = useState([]);
+    const [employees, setEmployees] = useState([]);
     const [service, setService] = useState();
     const [employee, setEmployee] = useState();
     const navigate = useNavigate();
@@ -39,8 +41,32 @@ function AEServicePage( {setAEServiceToEdit} ) {
         setTimeout(() => getAEServices(), 500)
     }
 
-    let animalserviceOptions = service.map((service, i) =>
-        <option key={i} value={service.animal_service_id}>`{service.animal_service_id}`</option>
+    const getServices = async() => {
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/animalservices');
+        const services = await res.json()
+        setServices(services)
+    };
+
+    useEffect(() => {
+        getServices();
+    }, []);
+
+    const getEmployees = async () => {
+        const res = await fetch('http://flip1.engr.oregonstate.edu:22131/employees');
+        const employees = await res.json();
+        setEmployees(employees)
+    };
+
+    useEffect(() => {
+        getEmployees();
+    }, []);
+
+    let animalservicesOptions = services.map((service, i) =>
+        <option key={i} value={service.animal_services_id}>{service.animal_services_id}</option>
+    )
+
+    let employeeOptions = employees.map((employee, i) =>
+        <option key={i} value={employee.employee_id}>`{employee.fname} {employee.lname}`</option>
     )
 
     return (
@@ -49,13 +75,16 @@ function AEServicePage( {setAEServiceToEdit} ) {
             <form>
                 <fieldset>
                     <legend>Add an entry</legend>
-                    <label>animal_service_id</label>
+                    <label>Animal Service</label>
                     <select id="animalservice" name="animalservice" value={service} onChange={e => setService(e.target.value)}>
                         <option>Select an animal service</option>
-                        {animalserviceOptions}
+                        {animalservicesOptions}
                     </select>
-                    <label>animal_services_id<input type="int" id="animalservid" value={service} onChange={e => setService(e.target.value)} /></label>
-                    <label>employee_id<input type="int" id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)} /></label>
+                    <label>Employee</label>
+                    <select id="employeeid" value={employee} onChange={e => setEmployee(e.target.value)}>
+                        <option>Select an employee</option>
+                        {employeeOptions}
+                    </select>
                     <button onClick={addAEServices}>Add</button>
                 </fieldset>
             </form>
