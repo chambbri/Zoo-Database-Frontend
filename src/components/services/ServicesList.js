@@ -1,7 +1,7 @@
 import React from 'react';
 import Service from './Service';
 
-function ServiceList({ services, deleteService, editService }) {
+function ServiceList({ animals, services, deleteService, editService }) {
     return (
         <table>
             <thead>
